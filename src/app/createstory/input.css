@@ -1,0 +1,77 @@
+.create-box{
+  width: 500px;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background:white ;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 20px;
+  position: absolute;
+  top: 115px;
+  
+}
+
+.create-input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+  width: 80%; 
+  padding: 18px 12px 20px 14px;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-weight: bold;
+
+}
+.add-button{
+ display: block;
+ height: 50px;
+ width: 120px;
+ border: none;
+ align-items: center;
+ border-radius: 15px;
+ background-color: rgb(53, 102, 194);
+ color: rgb(255, 255, 255);
+ font-size: 16px;
+ margin-top: 15px;
+ text-align: center;
+ cursor: pointer;
+ transform: 0.15;
+}
+.add-scrum{
+  display: flex;
+  justify-content: center;
+}
+.add-button:hover{
+  opacity: 0.8;;
+}
+
+.content{
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  
+}
+
+.close-btn{
+  height: 30px;
+  width: 70px;
+  border: none;
+  transition: 0.15;
+  background-color:rgb(53, 102, 194);
+  color: white;
+}
+.close-btn:hover{
+  opacity: 0.8;
+}
+
+.close-button{
+  margin-top:1px; 
+  margin-left: 525px;
+}
+.list{
+  position: absolute;
+  top: 200px;
+}

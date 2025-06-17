@@ -1,0 +1,43 @@
+<div class="content">
+  <h1 mat-dialog-title>Create Story</h1>
+  <div mat-dialog-content>
+    <div class="create-box">
+      <div class="create-input">
+        <p>Story Name</p>
+        <input type="text" class="form-control" [(ngModel)]="name" style="margin-bottom: 3px;"
+          placeholder="Enter story name" />
+        <p>Current Status</p>
+        <mat-form-field style="margin-bottom: 3px;">
+          <mat-label>Select an option</mat-label>
+          <mat-select [(ngModel)]="status">
+            @for(item of items2; track item){
+              <mat-option  [value]="item.label">{{item.label}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <p>Severity</p>
+        <mat-form-field style="margin-bottom: 3px;">
+          <mat-label>Select an option</mat-label>
+          <mat-select [(ngModel)]="severity">
+            @for(item of items1; track item){
+              <mat-option  [value]="item.label">{{item.label}}</mat-option>
+            }
+          </mat-select>
+        </mat-form-field>
+        <p>Story Point</p>
+        <input type="number" class="form-control" [(ngModel)]="point" style="margin-bottom: 3px;"
+          placeholder="Enter story point" />
+        <p>Description</p>
+        <textarea class="form-control" [(ngModel)]="description" placeholder="Enter story description"></textarea>
+      </div>
+      <div class="add-scrum">
+        <button (click)="addScrum()" class="add-button">Create Scrum</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div mat-dialog-actions class="close-button">
+  <button mat-button mat-dialog-close class="close-btn">Close</button>
+</div>
+
+

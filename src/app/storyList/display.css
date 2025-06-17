@@ -1,0 +1,48 @@
+
+
+div {
+  width: 800px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: linear-gradient(#ffffff);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  position: absolute;
+  top: 240px;
+  left: 20px;
+  right: 40px;
+}
+p{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.story-table {
+  width: 1800px;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-family: Arial;
+  margin-left: 18px;
+  
+}
+
+.story-table th,
+.story-table td{
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+} 
+.point-button {
+  background-color: #3f51b5;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.chip{
+  width: 160px;
+  border: none;
+}
+

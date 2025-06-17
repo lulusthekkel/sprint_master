@@ -1,0 +1,26 @@
+<table class="story-table">
+  <thead>
+    <tr>
+      <th>Issue</th>
+      <th>Status</th>
+      <th>Severity</th>
+      <th>Description</th>
+      <th>Point</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let story of storyList">
+      <td>Issue: {{ story?.name }}</td>
+      <td>
+        <mat-chip class="chip">{{story?.status}}</mat-chip>
+      </td>
+      <td>
+        <mat-chip class="chip">{{story?.severity}}</mat-chip>
+      </td>
+      <td>{{ story?.description }}</td>
+      <td>
+        <button class="point-button">Point: {{ story?.point }}</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
