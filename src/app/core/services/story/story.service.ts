@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs'
-import { Stories } from './app';
+import { BehaviorSubject,Observable } from 'rxjs'
+import { Stories } from '../../interfaces/stories.interface';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +12,7 @@ export class StoryService {
   addStory(story: Stories) {
     this.currentStories.push(story);
     this.storiesSource.next(this.currentStories);
+    
   }
 
   getStories(): Stories[] {

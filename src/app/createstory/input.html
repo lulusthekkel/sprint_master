@@ -1,43 +1,91 @@
-<div class="content">
-  <h1 mat-dialog-title>Create Story</h1>
-  <div mat-dialog-content>
-    <div class="create-box">
-      <div class="create-input">
-        <p>Story Name</p>
-        <input type="text" class="form-control" [(ngModel)]="name" style="margin-bottom: 3px;"
-          placeholder="Enter story name" />
-        <p>Current Status</p>
-        <mat-form-field style="margin-bottom: 3px;">
-          <mat-label>Select an option</mat-label>
-          <mat-select [(ngModel)]="status">
-            @for(item of items2; track item){
-              <mat-option  [value]="item.label">{{item.label}}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-        <p>Severity</p>
-        <mat-form-field style="margin-bottom: 3px;">
-          <mat-label>Select an option</mat-label>
-          <mat-select [(ngModel)]="severity">
-            @for(item of items1; track item){
-              <mat-option  [value]="item.label">{{item.label}}</mat-option>
-            }
-          </mat-select>
-        </mat-form-field>
-        <p>Story Point</p>
-        <input type="number" class="form-control" [(ngModel)]="point" style="margin-bottom: 3px;"
-          placeholder="Enter story point" />
-        <p>Description</p>
-        <textarea class="form-control" [(ngModel)]="description" placeholder="Enter story description"></textarea>
-      </div>
-      <div class="add-scrum">
-        <button (click)="addScrum()" class="add-button">Create Scrum</button>
-      </div>
+<div class="container issue-container">
+  <div class="story-title">
+    <h3>
+      Create new Story
+      <button class="close-btn">
+        <mat-icon aria-label='Close' (click)="dialogRef.close()">close</mat-icon>
+      </button>
+    </h3>
+  </div>
+  <div class="story-content mt-3">
+    <div class="story-form">
+      <form [formGroup]="storyForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+          <div class="col-12 mb-1">
+            <label>Story Name:</label>
+          </div>
+          <div class="col-12">
+            <input type="text" class="form-control" formControlName="name" placeholder="Enter story name" />
+            <div *ngIf="storyForm.get('name')?.invalid && storyForm.get('name')?.touched && isSubmitted" class="text-danger">
+              Story name is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-12 mb-1">
+            <label>Current Status:</label>
+          </div>
+          <div class="col-12">
+            <mat-form-field class="status">
+              <mat-label>Select an option</mat-label>
+              <mat-select formControlName="status">
+                <mat-option *ngFor="let item of items2" [value]="item.label">{{ item.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div *ngIf="storyForm.get('status')?.invalid && storyForm.get('status')?.touched  && isSubmitted" class="text-danger">
+              Status is required.
+            </div>
+          </div>
+        </div>
+        <div class="row mt-1">
+          <div class="col-12 mb-1">
+            <label>Severity:</label>
+          </div>
+          <div class="col-12">
+            <mat-form-field class="severity">
+              <mat-label>Select an option</mat-label>
+              <mat-select formControlName="severity">
+                <mat-option *ngFor="let item of items1" [value]="item.label">{{ item.label }}</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div *ngIf="storyForm.get('severity')?.invalid && storyForm.get('severity')?.touched  && isSubmitted" class="text-danger">
+              Severity is required.
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12 mb-1">
+            <label>Description :</label>
+          </div>
+          <div class="col-12">
+            <textarea class="form-control" formControlName="description"
+              placeholder="Enter story description"></textarea>
+            <div *ngIf="storyForm.get('description')?.invalid && storyForm.get('description')?.touched  && isSubmitted"
+              class="text-danger">
+              Description is required.
+            </div>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <div class="col-12 mb-1">
+            <label>Point:</label>
+          </div>
+          <div class="col-12">
+            <input type="number" class="form-control" formControlName="point" placeholder="Enter story point" />
+            <div *ngIf="storyForm.get('point')?.invalid && storyForm.get('point')?.touched && isSubmitted" class="text-danger">
+              Point is required.
+            </div>
+            <div *ngIf="storyForm.get('point')?.value && storyForm.get('point')?.hasError('oddNumber')" class="text-danger">
+              Point must be oddNumber.
+            </div>
+          </div>
+        </div>
+        <div class="add-story mt-3">
+          <button type="submit" class="add-button">
+            Create Story
+          </button>
+        </div>
+      </form>
     </div>
   </div>
-</div>
-<div mat-dialog-actions class="close-button">
-  <button mat-button mat-dialog-close class="close-btn">Close</button>
-</div>
-
-

@@ -27,23 +27,5 @@ p{
   padding: 12px;
   text-align: left;
 } 
-.point-button,
-.edit-button {
-  background-color: #f2f2f3;
-  color: black;
-  border: none;
-  padding: 6px 10px;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
-.chip{
-  --mat-chip-elevated-container-color: green;
-  --mat-chip-label-text-color: white;
-}
-.edit-icon{
-  height: 21px;
-  width: 21px;
-  margin-right: 4px;
-}
 

@@ -1,2 +1,33 @@
-<app-header></app-header>
-<router-outlet></router-outlet>
+<div class="container-fluid p-0">
+    <div class="header px-2">
+        <app-header></app-header>
+    </div>
+    <div class="main-section row mt-2">
+        <div class="col-2">
+            <div class="layout">
+                <aside class="side-nav">
+                    <ul>
+                        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                                routerLink="/dashboard"><span class="icon"><mat-icon>inbox</mat-icon></span>Backlog</a>
+                        </li>
+                        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                                routerLink="/sprint"><span class="icon"><mat-icon>list</mat-icon></span>Sprints</a>
+                        </li>
+                        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                                routerLink="/issues"><span class="icon"><mat-icon>bug_report</mat-icon></span>Issues</a>
+                        </li>
+                        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                                routerLink="/reports"><span
+                                    class="icon"><mat-icon>summarize</mat-icon></span>Reports</a></li>
+                        <li><a routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}"
+                                routerLink="/dashboard"><span
+                                    class="icon"><mat-icon>extension</mat-icon></span>Components</a></li>
+                    </ul>
+                </aside>
+            </div>
+        </div>
+        <div class="col-10">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>

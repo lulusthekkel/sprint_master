@@ -1,20 +1,4 @@
-.display-btn{
-    position: absolute;
-    right: 10px;
-    height: 40px;
-    width: 150px;
-    border: none;
-    border-radius: 40px;
-    background-color: rgb(226, 222, 222);
-    color:black;
-    font-family: Arial;
-}
 p{
     font-weight: bold;
     font-size: 36px;
-}
-nav{
-    display: flex;
-    flex-direction: column;
-     justify-content: space-between;
 }

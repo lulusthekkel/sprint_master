@@ -1,3 +1,31 @@
+.side-nav {
+    width: 200px;
+    background-color: white;
+    padding: 20px;
+    height: calc(100vh - 60px);
+    margin-left: 40px;
+}
+.side-nav ul {
+    list-style: none;
+    padding: 0;
+}
+.side-nav li {
+    margin-bottom: 10px;
+}
+.side-nav a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 18px;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex: 1;
+}
+.side-nav a.active {
+    background-color: #f5f5f5;
 
-
-
+}
+.icon{
+    padding-right: 12px;
+}

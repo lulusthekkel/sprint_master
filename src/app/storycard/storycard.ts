@@ -1,10 +1,10 @@
 import { Component, Input,OnInit} from '@angular/core';
-import { Stories } from '../app';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
 import { CommonModule } from '@angular/common';
-import { StoryService } from '../story.service';
+import { StoryService } from '../core/services/story/story.service';
+import { Stories } from '../core/interfaces/stories.interface';
 
 
 @Component({

@@ -3,11 +3,11 @@
   padding: 5px 10px;
   border-radius: 5px;
 }
-.story-title {
+.sprint-title {
   padding: 0;
   border-bottom: 1px solid #dfdbdb;
 }
-.add-story{
+.add-sprint{
   display: flex;
   justify-content: space-around;
   margin-top: 15px;
@@ -34,11 +34,10 @@
 .close-btn:hover{
   background-color:rgb(121, 166, 226);
 }
-.status,
-.severity{
-  width: 720px;
-}
 h3{
   display: flex;
   justify-content: space-between;
+}
+.date{
+  width: 720px;
 }

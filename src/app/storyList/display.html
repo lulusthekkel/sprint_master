@@ -1,4 +1,4 @@
-<table class="story-table">
+<table class="story-table w-100">
   <thead>
     <tr>
       <th>Issue</th>
@@ -6,20 +6,28 @@
       <th>Severity</th>
       <th>Description</th>
       <th>Point</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let story of storyList">
-      <td>Issue: {{ story?.name }}</td>
+    <tr *ngFor="let story of storyList; let i = index">
+      <td>Issue {{i + 1}}: {{ story?.name }}</td>
       <td>
-        <mat-chip class="chip">{{story?.status}}</mat-chip>
+        <mat-chip *ngIf="story?.status==='Open'" style=" background-color: red; border: none; " selected trans  class="chip">{{story?.status}}</mat-chip>
+        <mat-chip *ngIf="story?.status==='In progress'" style=" background-color: rgb(212, 212, 101); color: black; " selected trans  class="chip">{{story?.status}}</mat-chip>
+        <mat-chip *ngIf="story?.status==='Done'" style=" background-color: green; border: none;" selected trans  class="chip">{{story?.status}}</mat-chip>
       </td>
       <td>
-        <mat-chip class="chip">{{story?.severity}}</mat-chip>
+        <mat-chip *ngIf="story?.severity==='Low'" style=" background-color: green;" selected trans class="chip">{{story?.severity}}</mat-chip>
+        <mat-chip *ngIf="story?.severity==='Medium'" style=" background-color: rgb(212, 212, 101);" selected trans class="chip">{{story?.severity}}</mat-chip>
+        <mat-chip *ngIf="story?.severity==='High'" style=" background-color: red;" selected trans class="chip">{{story?.severity}}</mat-chip>
       </td>
       <td>{{ story?.description }}</td>
       <td>
         <button class="point-button">Point: {{ story?.point }}</button>
+      </td>
+      <td>
+        <button class="edit-button"><mat-icon class="edit-icon">edit</mat-icon>Edit</button>
       </td>
     </tr>
   </tbody>
