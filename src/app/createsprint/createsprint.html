@@ -70,23 +70,20 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row mt-2">
+                <div class="row mt-1">
                     <div class="col-12 mb-1">
-                        <label>Point:</label>
+                        <label>Target Point</label>
                     </div>
                     <div class="col-12">
-                        <input type="number" class="form-control" formControlName="point"
-                            placeholder="Enter story point" />
-                        <div *ngIf="storyForm.get('point')?.invalid && storyForm.get('point')?.touched && isSubmitted"
+                         <input type="number" class="form-control" formControlName="target"
+                            placeholder="Enter target point" />
+                        <div *ngIf="sprintForm.get('target')?.invalid && sprintForm.get('target')?.touched  && isSubmitted"
                             class="text-danger">
-                            Point is required.
-                        </div>
-                        <div *ngIf="storyForm.get('point')?.value && storyForm.get('point')?.hasError('oddNumber')"
-                            class="text-danger">
-                            Point must be oddNumber.
+                            Target point is required.
                         </div>
                     </div>
-                </div> -->
+                </div>
+            
                 <div class="add-sprint mt-3">
                     <button type="submit" class="add-button">
                         Create Sprint

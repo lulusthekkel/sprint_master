@@ -10,10 +10,11 @@ import { FirestoreService } from '../core/services/firestore/firestore.service';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatInputModule } from '@angular/material/input';
+import { Sprintservice } from '../core/services/sprint/sprintservice';
 
 @Component({
   selector: 'app-createsprint',
-  imports: [FormsModule, MatSelectModule, CommonModule, ReactiveFormsModule, MatIconModule, DialogModule, MatFormFieldModule, MatDatepickerModule,MatNativeDateModule,MatInputModule,],
+  imports: [FormsModule, MatSelectModule, CommonModule, ReactiveFormsModule, MatIconModule, DialogModule, MatFormFieldModule, MatDatepickerModule, MatNativeDateModule, MatInputModule,],
   templateUrl: './createsprint.html',
   styleUrl: './createsprint.css'
 })
@@ -28,7 +29,8 @@ export class Createsprint {
   sprintForm: FormGroup;
   isSubmitted = true
 
-  constructor(private fb: FormBuilder, private fireStoreSerivce: FirestoreService) {
+  constructor(private sprintservice: Sprintservice,
+    private fb: FormBuilder, private fireStoreSerivce: FirestoreService) {
     this.sprintForm = this.fb.group({
       name: ['', Validators.required],
       goal: ['', Validators.required],
@@ -39,15 +41,21 @@ export class Createsprint {
   }
 
   addSprint() {
-     this.fireStoreSerivce.addSprintItem(this.sprintForm.value)
+    this.sprintservice.addSprint(this.sprintForm.value);
+    this.fireStoreSerivce.addSprintItem(this.sprintForm.value)
+    console.log("sprint added ");
+
   }
   dialogRef = inject(DialogRef);
   onSubmit() {
     if (this.sprintForm.valid) {
       this.addSprint();
       this.dialogRef.close();
+      console.log("sprint added ");
     }
     this.isSubmitted = true;
+    console.log("Form valid:", this.sprintForm.valid);
+    // console.log("sprint addedddd ");
   }
 
 }
