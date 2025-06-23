@@ -1,35 +1,32 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, addDoc,getDocs  } from '@angular/fire/firestore';
+import { Firestore, collection, collectionData, addDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { Stories } from '../../interfaces/stories.interface';
-import { Sprint } from '../../../sprint/sprint';
+import { Sprint } from '../../interfaces/sprint.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FirestoreService {
   itemName: any;
+  updateItem: any;
 
-   constructor(private firestore: Firestore) {}
-  
+  constructor(private firestore: Firestore) { }
+
   getItems(stories: any): Observable<any[]> {
     const itemsRef = collection(this.firestore, 'stories');
-    return collectionData(itemsRef) as Observable<Stories[]>;
+    return collectionData(itemsRef,{ idField: 'id' }) as Observable<Stories[]>;
   }
-  
-   getSprintItems(sprint: any): Observable<any[]> {
-    const itemsRef = collection(this.firestore, 'sprint');
-    return collectionData(itemsRef) as Observable<Stories[]>;
-  }
-  
- 
 
+  getSprintItems(sprints: any): Observable<Sprint[]> {
+    const itemsRef = collection(this.firestore, 'sprints');
+    return collectionData(itemsRef) as Observable<Sprint[]>;
+  }
   async addItem(story: Stories) {
     if (story) {
       try {
         await addDoc(collection(this.firestore, 'stories'), story);
-        console.log('Item added successfully!');
-        this.itemName = ''; 
+        this.itemName = '';
       } catch (error) {
         console.error('Error adding item:', error);
       }
@@ -40,11 +37,12 @@ export class FirestoreService {
       try {
         await addDoc(collection(this.firestore, 'sprints'), sprint);
         console.log('Item added successfully!');
-        this.itemName = ''; 
+        this.itemName = '';
       } catch (error) {
         console.error('Error adding item:', error);
       }
     }
   }
+
 
 }

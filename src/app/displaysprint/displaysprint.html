@@ -7,14 +7,18 @@
       <th>End Date</th>
       <th>Completed</th>
       <th>Actions</th>
+      <!-- <th>Actions</th> -->
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let sprint of sprintList; let i = index">
       <td>Sprint {{i + 1}}: {{ sprint?.name }}</td>
       <td>{{ sprint?.goal }}</td>
-      <td>{{sprint?.startdate}}</td>
-      <td>{{sprint?.enddate}}</td>
+      <td>{{sprint?.startdate | date:'short'}}</td>
+      <td>{{sprint?.enddate | date:'short'}}</td>
+      <td></td>
+      <td>view</td>
+      <!-- <td></td> -->
 <!-- completed
  actions -->
     </tr>
