@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component} from '@angular/core';
 import { Createsprint } from '../createsprint/createsprint';
 import { Dialog, DialogModule, } from '@angular/cdk/dialog';
 import { Displaysprint } from '../displaysprint/displaysprint';
@@ -18,4 +18,5 @@ export class Sprint {
 
     });
   }
+  
 }

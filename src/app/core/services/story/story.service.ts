@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs'
 import { Stories } from '../../interfaces/stories.interface';
-import { Firestore, updateDoc,doc } from '@angular/fire/firestore';
+import { Firestore, updateDoc, doc,where,query, collection,collectionData } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -22,11 +22,15 @@ export class StoryService {
   getStories(): Stories[] {
     return this.currentStories;
   }
-updateStory(data: Stories): Promise<void> {
-  const storyDocRef = doc(this.firestore, `stories/${data.id}`);
-  const { id, ...storyData } = data;
-  return updateDoc(storyDocRef, storyData);
-}
-  
+  updateStory(data: Stories): Promise<void> {
+    const storyDocRef = doc(this.firestore, `stories/${data.id}`);
+    const { id, ...storyData } = data;
+    return updateDoc(storyDocRef, storyData);
+  }
+  getStoriesBySprint(sprintId: string): Observable<any[]> {
+    const storiesRef = collection(this.firestore, 'stories');
+    const q = query(storiesRef, where('sprintId', '==', sprintId));
+    return collectionData(q, { idField: 'id' });
+  }
 
 }
