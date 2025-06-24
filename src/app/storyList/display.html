@@ -29,16 +29,15 @@
           class="chip">{{story?.severity}}</mat-chip>
       </td>
       <td>{{ story?.description }}</td>
-      <td>
-        <button class="point-button">Point: {{ story?.point }}</button>
+      <td><span class="point-chip">
+          <mat-chip selected>
+            {{ story?.point }}
+          </mat-chip>
+        </span>
       </td>
       <td>
-        <button class="edit-button" (click)="openDialog(story)">
-          <mat-icon class="edit-icon">edit</mat-icon>Edit
-        </button>
+          <mat-icon class="edit-icon" (click)="openDialog(story)">edit</mat-icon>
       </td>
     </tr>
   </tbody>
 </table>
-
-

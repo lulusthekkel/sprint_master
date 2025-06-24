@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs'
+import { BehaviorSubject, Observable  } from 'rxjs'
 import { Sprint } from '../../interfaces/sprint.interface';
 import { collection, collectionData, Firestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import firebase from 'firebase/compat/app';
 
 
 @Injectable({
@@ -11,7 +13,7 @@ export class Sprintservice {
   private sprintSource = new BehaviorSubject<Sprint[]>([]);
   sprint$ = this.sprintSource.asObservable();
   private currentSprint: Sprint[] = [];
-  constructor(private firestore: Firestore) { }
+  constructor() { }
 
   addSprint(sprint: Sprint) {
     this.currentSprint.push(sprint);
@@ -24,9 +26,7 @@ export class Sprintservice {
   getsprintList() {
     return this.currentSprint;
   }
-  getSprintItems(): Observable<any[]> {
-  const sprintCollection = collection(this.firestore, 'sprints');
-  return collectionData(sprintCollection, { idField: 'id' }); 
-}
+  
   
 }
+

@@ -40,10 +40,27 @@ p{
 .chip{
   --mat-chip-elevated-container-color: green;
   --mat-chip-label-text-color: white;
+  --mat-chip-outline-color: transparent;
+  border:none;
 }
 .edit-icon{
   height: 21px;
   width: 21px;
   margin-right: 4px;
 }
+/* .chip {
+  font-weight: bold;
+  color: white;
+  border: none;
+} */
+
+.point-chip {
+  font-weight: bold;
+  border: none;
+  --mat-chip-elevated-container-color: #00aaff;
+  --mat-chip-label-text-color: white;
+  --mat-chip-outline-color: transparent;
+}
+
+
 

@@ -1,10 +1,11 @@
 export interface Sprint {
-  id?:string;
+  id:string;
   name: string;
   goal: string;
   startdate:Date;
   enddate: Date;
   target: number;
-  stories?:string;
+  total: number;
+  stories:string[];
 }
    

@@ -28,7 +28,7 @@ export class Editstory {
   { label: 'Done', color: 'green' }];
 
 
-  constructor(private fb: FormBuilder, private sprintService: Sprintservice,
+  constructor(private fb: FormBuilder, private firebaseService: FirestoreService,
     @Inject(MAT_DIALOG_DATA) public data: Stories
   ) {
     console.log(this.data);
@@ -43,13 +43,14 @@ export class Editstory {
     });
   }
   ngOnInit(): void {
-    this.sprintService.getSprintItems().subscribe(sprints => {
+    this.firebaseService.getSprintItems().subscribe(sprints => {
       this.sprints = sprints;
     });
   }
 
   onSave() {
     this.dialogRef.close(this.editForm.value);
+    this.onSprintSelected(this.data.id as string, this.editForm.value.sprint )
     console.log(this.editForm.value);
 
   }
@@ -58,6 +59,12 @@ export class Editstory {
     this.dialogRef.close();
 
   }
+  onSprintSelected(storyId: string, sprintId: string) {
+  this.firebaseService.addStoryToSprint(sprintId, storyId).then(() => {
+    console.log('Story added to sprint!');
+  });
+}
+
 
 
 

@@ -9,6 +9,7 @@ import { Sprint } from './sprint/sprint';
 
 export const routes: Routes = [
     { path: 'issues', component: Issues },
+    { path: '', redirectTo: 'dashboard', pathMatch: 'full'},
     {path:'input',component:InputComponent},
     {path:'display',component:Display},
     { path: 'dashboard', component: Dashboard },
